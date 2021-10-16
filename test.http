@@ -1,0 +1,79 @@
+### REGISTER
+POST http://localhost:3001/auth/register
+Content-Type: application/json
+
+{
+  "name":"test",
+  "username":"test@test.test",
+  "password":"testtest"
+}
+### LOGIN
+POST http://localhost:3001/auth/login
+Content-Type: application/json
+
+{
+  "username":"test@test.test",
+  "password":"testtest"
+}
+### VIEW USER
+GET http://localhost:3001/users/test@test.test
+
+### MY PROFILE
+GET http://localhost:3001/profile
+
+### LOGOUT
+DELETE http://localhost:3001/auth/logout
+
+### CREATE INTERVIEW
+POST http://localhost:3001/interviews/create
+Content-Type: application/json
+
+{
+  "title": "UP: System Design",
+  "candidateName": "Deepak",
+  "interviewerName":"James Bond"
+}
+
+### GET INTERVIEWS
+GET http://localhost:3001/interviews/
+
+### JDOODLE check balance
+POST https://api.jdoodle.com/v1/credit-spent
+Content-Type: application/json
+
+{
+  "clientId":"9f57d5076d22c57527fbac271c977132",
+  "clientSecret":"1ba2f09995e1b266cd1d67a84ad176c42cd24bf3070ebd9d192e16831192b8d1"
+}
+### JDOODLE simple program balance
+POST https://api.jdoodle.com/v1/execute
+Content-Type: application/json
+
+{
+  "clientId":"9f57d5076d22c57527fbac271c977132",
+  "clientSecret":"1ba2f09995e1b266cd1d67a84ad176c42cd24bf3070ebd9d192e16831192b8d1",
+  "script":"#includes <iostream>\n\nusing namespace std;\n\nint main() {\n    int x,y;\n    cin>>x>>y;\n    int z=x+y;\n    cout<<\"Sum of x+y = \" << z;\n}",
+  "stdin":"13 12",
+  "language":"cpp17",
+  "versionIndex":0
+}
+
+# ALL GOOD
+# {
+#   "output": "Sum of x+y = -1201551235",
+#   "statusCode": 200,
+#   "memory": "3408",
+#   "cpuTime": "0.00"
+# }
+
+# Runtime ERR
+# {
+#   "output": "\njdoodle.cpp:1:2: error: invalid preprocessing directive #includes; did you mean #include?\n    1 | #includes <iostream>\n      |  ^~~~~~~~\n      |  include\njdoodle.cpp: In function ‘int main()’:\njdoodle.cpp:7:5: error: ‘cin’ was not declared in this scope\n    7 |     cin>>x>>y;\n      |     ^~~\njdoodle.cpp:1:1: note: ‘std::cin’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?\n  +++ |+#include <iostream>\n    1 | #includes <iostream>\njdoodle.cpp:9:5: error: ‘cout’ was not declared in this scope\n    9 |     cout<<\"Sum of x+y = \" << z;\n      |     ^~~~\njdoodle.cpp:9:5: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?\n",
+#   "statusCode": 200,
+#   "memory": null,
+#   "cpuTime": null
+# }
+
+
+### 
+GET http://localhost:3001/execute-code
