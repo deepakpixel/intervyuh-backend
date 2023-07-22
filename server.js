@@ -264,3 +264,5 @@ io.on('connection', (client) => {
 setInterval(()=> console.log(new Date()), 5000)
 process.on('uncaughtException', err => console.log('ERR',err));
 process.on('unhandledRejection', err => console.log('ERR', err));
+process.on("SIGTERM", (err) => console.log("EVENT ", err));
+process.on("SIGINT", (err) => console.log("EVENT ", err));
