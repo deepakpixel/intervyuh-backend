@@ -16,11 +16,13 @@ const ProfileRouter = require('./routes/profile');
 const jwt = require('jsonwebtoken');
 const Interview = require('./models/Interview');
 // Config: cookie, passport, cors etc
+const cors = require('cors');
 
 app.use((req, res, next) => setTimeout(next, 1000));
 
 app.use(
-  require('cors')({ credentials: true, origin: 'http://localhost:3000' })
+  // require('cors')({ credentials: true, origin: 'http://localhost:3000' })
+  cors()
 );
 app.use(
   cookieSession({
