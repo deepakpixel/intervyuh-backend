@@ -20,11 +20,19 @@ const cors = require('cors');
 
 app.use((req, res, next) => setTimeout(next, 1000));
 
-app.use(
-  // require('cors')({ credentials: true, origin: 'http://localhost:3000' })
-  require('cors')({ credentials: true, origin: '*' })
-  // cors()
-);
+// app.use(
+//   // require('cors')({ credentials: true, origin: 'http://localhost:3000' })
+//   require('cors')({ credentials: true, origin: '*' })
+//   // cors()
+// );
+let corsOptions = {
+  origin: function (origin, callback) {
+    callback(null, true);
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(
   cookieSession({
     name: 'iv-connect',
