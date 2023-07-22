@@ -22,7 +22,8 @@ app.use((req, res, next) => setTimeout(next, 1000));
 
 app.use(
   // require('cors')({ credentials: true, origin: 'http://localhost:3000' })
-  cors()
+  require('cors')({ credentials: true, origin: '*' })
+  // cors()
 );
 app.use(
   cookieSession({
