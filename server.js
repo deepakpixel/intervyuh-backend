@@ -164,21 +164,21 @@ const server = app.listen(PORT, () => {
 });
 
 // PEER
-var peerApp = express();
-var ExpressPeerServer = require('peer').ExpressPeerServer;
-var peerServer = require('http').createServer(peerApp);
-var options = {
-  debug: true,
-};
-peerApp.use(
-  '/peerjs',
-  (req, res, next) => {
-    console.log('HEY');
-    next();
-  },
-  ExpressPeerServer(peerServer, options)
-);
-peerServer.listen(3002);
+// var peerApp = express();
+// var ExpressPeerServer = require('peer').ExpressPeerServer;
+// var peerServer = require('http').createServer(peerApp);
+// var options = {
+//   debug: true,
+// };
+// peerApp.use(
+//   '/peerjs',
+//   (req, res, next) => {
+//     console.log('HEY');
+//     next();
+//   },
+//   ExpressPeerServer(peerServer, options)
+// );
+// peerServer.listen(3002);
 
 // 404 Not found
 app.use((req, res) => {
