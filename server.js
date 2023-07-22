@@ -260,3 +260,7 @@ io.on('connection', (client) => {
     client.emit('pong');
   });
 });
+
+setInterval(()=> console.log(new Date()), 5000)
+process.on('uncaughtException', err => console.log('ERR',err));
+process.on('unhandledRejection', err => console.log('ERR', err));
